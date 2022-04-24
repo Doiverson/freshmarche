@@ -17,6 +17,7 @@ function App() {
             <NotifyProvider>
               <CheckoutProvider>
                 <div className="App">
+                  <div>test</div>
                   <Main />
                 </div>
               </CheckoutProvider>
