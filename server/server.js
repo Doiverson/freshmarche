@@ -1,5 +1,8 @@
 const express = require("express");
+const cors = require("cors");
+
 const app = express();
+app.use(cors());
 // This is a public sample test API key.
 // Don’t submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
@@ -32,26 +35,11 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
-app.listen(4242, () => console.log("Node server listening on port 4242!"));
+app.get("/", (req, res) => {
+  res.send("API is Ready!!")
+} )
 
-// package.json
-
-// default
-// "scripts": {
-//   "start": "react-scripts start",
-//   "build": "react-scripts build",
-//   "test": "react-scripts test",
-//   "eject": "react-scripts eject"
-// },
-
-// "homepage": "http://localhost:3000/checkout",
-// "proxy": "http://localhost:4242",
-
-// "scripts": {
-//   "start-client": "react-scripts start",
-//   "start-server": "node server.js",
-//   "build": "react-scripts build",
-//   "test": "react-scripts test",
-//   "eject": "react-scripts eject",
-//   "start": "concurrently \"yarn start-client\" \"yarn start-server\""
-// },
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});

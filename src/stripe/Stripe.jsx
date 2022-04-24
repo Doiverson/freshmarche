@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 // Don’t submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
 const stripePromise = loadStripe("pk_test_A7jK4iCYHL045qgjjfzAfPxu");
+const BASE_URL = "https://kento-test.herokuapp.com";
 
 export default function Stripe() {
   const [clientSecret, setClientSecret] = useState("");
@@ -20,7 +21,7 @@ export default function Stripe() {
   useEffect(() => {
     setIsLoading(true);
     // Create PaymentIntent as soon as the page loads
-    fetch("/.netlify/functions/api/create-payment-intent", {
+    fetch(`${BASE_URL}/create-payment-intent`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),

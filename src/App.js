@@ -2,7 +2,7 @@ import Main from "./pages/Main";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme/theme";
 // original
-import FavoriteProvider from "./contexts/FavoriteProvider";
+import FavoriteProvider from "./contexts/favoriteProvider";
 import CartProvider from "./contexts/CartProvider";
 import NotifyProvider from "./contexts/NotifyProvider";
 import AuthProvider from "./contexts/AuthProvider";
@@ -17,7 +17,6 @@ function App() {
             <NotifyProvider>
               <CheckoutProvider>
                 <div className="App">
-                  <div>test</div>
                   <Main />
                 </div>
               </CheckoutProvider>
